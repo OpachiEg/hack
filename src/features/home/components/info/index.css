@@ -1,0 +1,15 @@
+.page-info {
+    width: 100%;
+
+    margin-top: 20px;
+
+    display: flex;
+}
+
+.page-info_delimiter {
+    width: 2px;
+    height: 50px;
+
+    border-radius: 10px;
+    background: rgba(0,0,0,0.1);
+}

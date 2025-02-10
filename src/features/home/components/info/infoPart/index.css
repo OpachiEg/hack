@@ -1,0 +1,27 @@
+.info_part {
+    background: var(--s-back);
+    padding: 15px;
+    border-radius: 15px;
+    margin-right: 15px;
+
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.info_part > p {
+    font-size: 16px;
+}
+
+.info_part_item {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.info_part_item > p {
+    font-size: 13px;
+    margin-left: 10px;
+    max-width: 85%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

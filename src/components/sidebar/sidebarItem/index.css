@@ -1,0 +1,42 @@
+.sidebar_item {
+    width: 100%;
+    padding: 5px;
+
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.sidebar_item a {
+    text-decoration: none;
+    transition: 0.3s;
+
+    font-size: 16px;
+
+    margin-left: 15px;
+
+    color: black;
+
+    border-radius: 20px;
+}
+
+.sidebar_item svg * {
+    transition: 0.3s;
+}
+
+.sidebar_item:hover {
+    background: rgba(203,184,255,0.1);
+}
+
+.sidebar_item:hover a {
+    color: var(--primary);
+}
+
+.sidebar_item:hover svg * {
+    stroke: var(--primary);
+}
