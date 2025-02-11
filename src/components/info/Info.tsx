@@ -1,8 +1,6 @@
 import React from 'react';
 import "./index.css";
 import InfoPart, {InfoPartItem} from "./infoPart/InfoPart";
-import {TbBell, TbBriefcase2, TbCircleNumber4} from "react-icons/tb";
-import { TbCircleNumber5 } from "react-icons/tb";
 
 interface InfoPartProps {
     color?: string,
@@ -13,12 +11,13 @@ interface InfoPartProps {
 }
 
 interface Props {
-    items: Array<InfoPartProps>
+    items: Array<InfoPartProps>,
+    width?: string
 }
 
-const Info: React.FC<Props> = ({items}) => {
+const Info: React.FC<Props> = ({width,items}) => {
     return (
-        <div className={"page-info"}>
+        <div className={"page-info"} style={{width: width ?? ""}}>
             {items?.map(v => (
                 <InfoPart
                     color={v.color}
