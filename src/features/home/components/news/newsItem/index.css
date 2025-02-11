@@ -1,16 +1,14 @@
 .home-news_item {
-    width: 70%;
+    width: 90%;
     height: 130px;
 
     display: flex;
     align-items: center;
 
     padding: 15px;
-    margin-top: 10px;
+    margin-top: 15px;
 
     border-radius: 15px;
-
-    color: white;
 
     cursor: pointer;
 
@@ -19,6 +17,8 @@
 
 .home-news_item:hover {
     transform: translateY(-2.5px) translateX(5px);
+
+    box-shadow: rgba(203,184,255, 0.4) -5px 5px, rgba(203,184,255, 0.3) -10px 10px, rgba(203,184,255, 0.2) -15px 15px, rgba(203,184,255, 0.1) -20px 20px, rgba(203,184,255, 0.05) -25px 25px;
 }
 
 .home-news_item img {

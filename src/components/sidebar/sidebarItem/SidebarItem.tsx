@@ -10,10 +10,10 @@ interface Props {
 
 const SidebarItem: React.FC<Props> = ({icon,text,to}) => {
     return (
-        <div className={"a-slide-x sidebar_item"}>
+        <Link to={to ?? "/"} className={"a-slide-x sidebar_item"}>
             {icon}
-            <Link to={"/"}>{text}</Link>
-        </div>
+            <p>{text}</p>
+        </Link>
     );
 };
 

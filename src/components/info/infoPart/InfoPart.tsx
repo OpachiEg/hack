@@ -3,7 +3,8 @@ import "./index.css";
 
 export interface InfoPartItem {
     icon: ReactElement,
-    text: string
+    text: string,
+    textElement?: ReactElement
 }
 
 interface Props {
@@ -14,7 +15,7 @@ interface Props {
     items: Array<InfoPartItem>
 }
 
-const InfoPart: React.FC<Props> = ({width,title,items,color,colorRgba}) => {
+const InfoPart: React.FC<Props> = ({width, title, items, color, colorRgba}) => {
     return (
         <div className={"a-slide-y info_part"} style={{
             width,
@@ -23,8 +24,10 @@ const InfoPart: React.FC<Props> = ({width,title,items,color,colorRgba}) => {
             <p style={{color: color}}>{title}</p>
             {items?.map((v) => (
                 <div className={"info_part_item"}>
-                    {v.icon}
-                    <p>{v.text}</p>
+                    <div>
+                        {v.icon}
+                    </div>
+                    {!v.textElement ? <p>{v.text}</p> : <>{v.textElement}</>}
                 </div>
             ))}
         </div>

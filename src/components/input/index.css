@@ -1,0 +1,24 @@
+.cus-input {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.cus-input svg {
+    position: absolute;
+    left: 7px;
+}
+
+.cus-input input {
+    width: 30%;
+    height: 40px;
+    font-size: 16px;
+
+    border-radius: 10px;
+
+    padding: 15px 10px;
+    padding-left: 33px;
+
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
