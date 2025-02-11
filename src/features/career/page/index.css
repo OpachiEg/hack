@@ -2,6 +2,11 @@
     margin-top: 15px;
 }
 
+.career_content > p {
+    font-family: MF-Bold;
+    font-size: 17px;
+}
+
 .career_filters {
     margin-top: 15px;
 }

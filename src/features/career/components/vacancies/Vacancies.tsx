@@ -3,7 +3,7 @@ import {TbBell} from "react-icons/tb";
 import "./index.css";
 import { useState } from 'react';
 import { VacanciesInfo } from '../../../home/types';
-import VacanciesItem from '../vacanciesItem/VacanciesItem';
+import VacanciesItem from './vacanciesItem/VacanciesItem';
 
 const Vacancies = () => {
 
@@ -97,7 +97,6 @@ const Vacancies = () => {
 
    return (
         <div className="carrer-vacancies">
-            <h4 className="a-slide-y">Вакансии</h4>
             <div className="vacancies-container">
                 {vacancies.map((v) => (
                     <VacanciesItem key={v.id} item={v} />

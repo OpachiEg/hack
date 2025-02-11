@@ -7,6 +7,7 @@
     margin-top: 20px;
 }
 
-.home-news > h4 {
+.home-news > p {
     margin-bottom: 5px;
+    font-family: MF-Bold;
 }

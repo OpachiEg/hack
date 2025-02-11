@@ -3,6 +3,16 @@
     src: url(./fonts/golos-text_medium.ttf);
 }
 
+@font-face {
+    font-family: MF-Bold;
+    src: url(./fonts/golos-text_bold.ttf);
+}
+
+@font-face {
+    font-family: MF-Regular;
+    src: url(./fonts/golos-text_regular.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -33,7 +43,7 @@ html,body {
 
 .main-container > p {
     font-size: 28px;
-    font-weight: bold;
+    font-family: MF-Bold;
 }
 
 .a-opacity {

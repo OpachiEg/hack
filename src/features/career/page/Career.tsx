@@ -4,7 +4,7 @@ import {TbBell} from "react-icons/tb";
 import "./index.css";
 import CustomSelect from "../../../components/select/CustomSelect";
 import CustomInput from "../../../components/input/CustomInput";
-import Vacancies from './vacancies/Vacancies';
+import Vacancies from '../components/vacancies/Vacancies';
 
 const Career = () => {
     return (
@@ -29,7 +29,7 @@ const Career = () => {
                 }
             ]}/>
             <div className={"career_content"}>
-                <h4>Актуальные вакансии</h4>
+                <p className={"a-slide-y"}>Актуальные вакансии</p>
                 <div className={"career_filters"}>
                     <CustomInput placeholder={"Компании"}/>
                 </div>

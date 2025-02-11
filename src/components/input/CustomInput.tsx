@@ -8,7 +8,7 @@ interface Props {
 
 const CustomInput: React.FC<Props> = ({placeholder}) => {
     return (
-        <div className={"cus-input"}>
+        <div className={"a-opacity cus-input"}>
             <TbSearch size={"18px"}/>
             <input onChange={(e) => {
             }} placeholder={placeholder}/>

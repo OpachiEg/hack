@@ -40,7 +40,7 @@ const News = () => {
 
     return (
         <div className={"home-news"}>
-            <h4 className={"a-slide-y"}>Новости университета</h4>
+            <p className={"a-slide-y"}>Новости университета</p>
             {news?.map((v,i) => (
                 <NewsItem index={i} item={v} key={v.id}/>
             ))}

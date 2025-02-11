@@ -13,7 +13,7 @@
 
 .info_part_item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin-top: 10px;
 }
 
