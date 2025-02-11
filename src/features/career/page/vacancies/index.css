@@ -1,0 +1,19 @@
+.carrer-vacancies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.a-slide-y {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.vacancies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
