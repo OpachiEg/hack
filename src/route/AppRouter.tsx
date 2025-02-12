@@ -4,6 +4,7 @@ import Root from "../layout/root/Root";
 import Home from "../features/home/page/Home";
 import Career from "../features/career/page/Career";
 import Progress from "../features/progress/page/Progress";
+import Schedule from "../features/schedule/page/Schedule";
 
 const AppRouter = () => {
 
@@ -22,6 +23,10 @@ const AppRouter = () => {
                 {
                     path: "/progress",
                     element: <Progress/>
+                },
+                {
+                    path: "/schedule",
+                    element: <Schedule/>
                 }
             ]
         }

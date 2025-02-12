@@ -1,0 +1,42 @@
+.schedule-table_search {
+    margin-top: 20px;
+
+    width: 60%;
+    max-width: 500px;
+
+    position: relative;
+
+    background: white;
+}
+
+.schedule-table_search_result {
+    width: 100%;
+
+    padding: 15px;
+
+    top: 55px;
+
+    position: absolute;
+    z-index: 99;
+
+    box-shadow: rgba(77, 25, 204, 0.05) 0px 6px 24px 0px, rgba(77, 25, 204, 0.08) 0px 0px 0px 1px;
+    background: white;
+
+    border-radius: 15px;
+}
+
+.schedule-table_search_result_item {
+    padding: 5px;
+    padding-left: 10px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    border-radius: 5px;
+}
+
+.schedule-table_search_result_item:hover {
+    background: rgba(203,184,255,0.1);
+    color: var(--primary);
+}

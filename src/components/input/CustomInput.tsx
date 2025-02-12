@@ -4,15 +4,21 @@ import "./index.css";
 
 interface Props {
     placeholder: string,
-    style?: CSSProperties
+    style?: CSSProperties,
+    onChange?: (value: string) => void
 }
 
-const CustomInput: React.FC<Props> = ({placeholder,style}) => {
+const CustomInput: React.FC<Props> = ({placeholder, style, onChange}) => {
     return (
         <div className={"a-opacity cus-input"}>
             <TbSearch size={"18px"}/>
-            <input style={style} onChange={(e) => {
-            }} placeholder={placeholder}/>
+            <input
+                style={style}
+                onChange={(e) => {
+                    if(onChange) onChange(e.target.value);
+                }}
+                placeholder={placeholder}
+            />
         </div>
     );
 };
