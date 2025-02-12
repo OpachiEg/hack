@@ -4,7 +4,8 @@ import "./index.css";
 
 export interface SearchResult {
     name: string,
-    value: string
+    value: string,
+    type: string
 }
 
 interface Props {
@@ -32,11 +33,13 @@ const ScheduleSearch: React.FC<Props> = ({inputPlaceholder,searchApi,setSearchRe
             setSearchItems([
                 {
                     name: "21П-1",
-                    value: "21П-1"
+                    value: "21П-1",
+                    type: "group"
                 },
                 {
                     name: "123",
-                    value: "123"
+                    value: "123",
+                    type: "group"
                 }
             ]);
         } else {
@@ -45,7 +48,7 @@ const ScheduleSearch: React.FC<Props> = ({inputPlaceholder,searchApi,setSearchRe
     }, []);
 
     return (
-        <div className={"schedule-table_search"}>
+        <div className={"a-slide-y schedule-table_search"}>
             <CustomInput
                 onChange={onSearch}
                 style={{

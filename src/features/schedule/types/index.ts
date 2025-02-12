@@ -1,5 +1,5 @@
-export interface ScheduleEntryInfo {
-    id: string,
+export interface ScheduleItem {
+    id: number,
     groupName: string,
     semester: string,
     startAt: string,
@@ -7,5 +7,11 @@ export interface ScheduleEntryInfo {
     discipline: string,
     teacher: string,
     audience: string,
-    type: string
+    type: string,
+    num: number
+}
+
+export interface ScheduleWeekDay {
+    date: Date,
+    dayOfWeek: string
 }

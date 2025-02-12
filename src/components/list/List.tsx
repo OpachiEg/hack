@@ -30,7 +30,7 @@ const List: React.FC<Props> = ({loading,items,columns }) => {
                         color: value.color ?? ""
                     };
                     if (value.type === "header") {
-                        return <div className={"a-slide-y d-list__content__item d-list__content__header"} style={style}>
+                        return <div className={"a-opacity d-list__content__item d-list__content__header"} style={style}>
                             <div className={"d-list__content__header__name"}>
                                 {value.icon}
                                 <p style={{
