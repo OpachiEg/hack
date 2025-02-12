@@ -31,8 +31,8 @@ const Career = () => {
                     }
                 ]}/>
                 <div className={"career_useful-links"}>
-                    <UsefulLink bgColor={"rgba(0,127,255,0.05)"} title={"Трудовой кодекс"} color={"#007FFF"} link={""}/>
-                    <UsefulLink bgColor={"rgba(127,255,0,0.05)"} title={"Постановление РФ №501"} color={"#7FFF00"} link={""}/>
+                    <UsefulLink bgColor={"rgba(0,127,255,0.05)"} title={"Трудовой кодекс"} color={"var(--blue)"} link={""}/>
+                    <UsefulLink bgColor={"rgba(127,255,0,0.05)"} title={"Постановление РФ №501"} color={"var(--light-green)"} link={""}/>
                 </div>
             </div>
             <div className={"career_content"}>

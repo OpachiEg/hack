@@ -34,6 +34,10 @@ html,body {
     --grey: #9396a7;
     --orange: #ea591f;
     --purple: #9977f2;
+    --blue: #007FFF;
+    --light-green: #7FFF00;
+    --green:#50C878;
+    --red: #EF0107;
 }
 
 .main-container {

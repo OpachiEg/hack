@@ -23,7 +23,7 @@ const Sidebar = () => {
                 <div className={"sidebar_menu"}>
                     <SidebarItem icon={<TbSmartHome size={"25px"}/>} text={"Главная"} to={"/"}/>
                     <SidebarItem icon={<TbCalendarWeek size={"23px"}/>} text={"Расписание"}/>
-                    <SidebarItem icon={<TbBook size={"23px"}/>} text={"Успеваемость"}/>
+                    <SidebarItem icon={<TbBook size={"23px"}/>} text={"Успеваемость"} to={"/progress"}/>
                     <SidebarItem icon={<TbBriefcase2 size={"23px"}/>} text={"Карьера"} to={"/career"}/>
                     <SidebarItem icon={<TbMessageChatbot size={"23px"}/>} text={"Обратная связь"}/>
                     <SidebarItem icon={<TbBuildingBank size={"23px"}/>} text={"Универститет"}/>
