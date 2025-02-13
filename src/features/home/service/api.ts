@@ -11,5 +11,8 @@ export const API = {
     },
     loadReminders(size: number): Promise<AxiosResponse<Array<{title: string,event_datetime: string}>>> {
         return AxiosUtils.getBaseInstance().get("/reminders/?limit=" + size);
-    }
+    },
+    loadMarks(size: number): Promise<AxiosResponse<Array<{discipline_name: string,mark: number,mark_type: string}>>> {
+        return AxiosUtils.getBaseInstance().get("/progress/marks?student_id=1&limit=" + size);
+    },
 };

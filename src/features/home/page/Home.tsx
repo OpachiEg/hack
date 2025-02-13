@@ -1,7 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {ReactElement, useEffect, useState} from 'react';
 import Info from "../../../components/info/Info";
 import News from "../components/news/News";
-import {TbBell, TbBriefcase2, TbCircleNumber4, TbCircleNumber5} from "react-icons/tb";
+import {
+    TbBell,
+    TbBriefcase2,
+    TbCircleNumber1,
+    TbCircleNumber2,
+    TbCircleNumber3,
+    TbCircleNumber4,
+    TbCircleNumber5
+} from "react-icons/tb";
 import {InfoPartItem} from "../../../components/info/infoPart/InfoPart";
 import {API} from "../service/api";
 
@@ -9,17 +17,43 @@ const Home = () => {
 
     const [vacancies,setVacancies] = useState<Array<InfoPartItem>>([]);
     const [reminders,setReminders] = useState<Array<InfoPartItem>>([]);
+    const [marks,setMarks] = useState<Array<InfoPartItem>>([]);
 
     useEffect(() => {
-        API.loadVacancies(3).then(({data}) => {
-            setVacancies(data.map(v => ({icon: <TbBriefcase2 size={"18px"}/>,text: `${v.company_name} (${v.vacancy_name})`})));
-        });
+        // API.loadVacancies(3).then(({data}) => {
+        //     setVacancies(data.map(v => ({icon: <TbBriefcase2 size={"18px"}/>,text: `${v.company_name} (${v.vacancy_name})`})));
+        // });
         API.loadReminders(3).then(({data}) => {
             setReminders(data.map(v => (
                 {
                     icon: <TbBriefcase2 size={"18px"}/>,
                     text: `${new Date(v.event_datetime).toLocaleString('ru-RU', {day: 'numeric',month: "short",year: "numeric"})} ${v.title}`})
             ));
+        });
+        API.loadMarks(3).then(({data}) => {
+            setMarks(data.map(v => {
+                let mark: ReactElement = <TbCircleNumber1 size={"18px"}/>;
+
+                switch (v.mark) {
+                    case 2:
+                        mark = <TbCircleNumber2 size={"18px"}/>;
+                        break;
+                    case 3:
+                        mark = <TbCircleNumber3 size={"18px"}/>;
+                        break;
+                    case 4:
+                        mark = <TbCircleNumber4 size={"18px"}/>;
+                        break;
+                    case 5:
+                        mark = <TbCircleNumber5 size={"18px"}/>;
+                        break;
+                }
+
+                return  {
+                    icon: mark,
+                    text: `${v.discipline_name} (${v.mark_type})`
+                };
+            }));
         })
     },[]);
 
@@ -39,20 +73,7 @@ const Home = () => {
                     colorRgba: "rgb(239,1,7,0.1)",
                     width: "29%",
                     title: "Оценки недели",
-                    items: [
-                        {
-                            icon: <TbCircleNumber5 size={"18px"}/>,
-                            text: "Системный анализ (Диф. зачет)"
-                        },
-                        {
-                            icon: <TbCircleNumber5 size={"18px"}/>,
-                            text: "Программная инженерия (Диф. зачет)"
-                        },
-                        {
-                            icon: <TbCircleNumber4 size={"18px"}/>,
-                            text: "История (Диф. зачет)"
-                        }
-                    ]
+                    items: marks
                 },
                 {
                     color: "#03C03C",
