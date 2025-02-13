@@ -5,6 +5,10 @@
     margin-right: 15px;
 
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+
+    display: flex;
+    flex-direction: column;
+    height: max-content;
 }
 
 .info_part > p {
@@ -17,13 +21,25 @@
     margin-top: 10px;
 }
 
-.info_part_item > p {
-    font-size: 13px;
-    margin-left: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
+.info_part_item > p,a {
+     font-size: 13px;
+     margin-left: 10px;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     display: -webkit-box;
+     -webkit-line-clamp: 2;
+     line-clamp: 2;
+     -webkit-box-orient: vertical;
+
+    max-width: 90%;
+}
+
+.info_part_item > a {
+    color: black;
+    text-decoration: underline var(--orange);
+}
+
+.info_part_item div {
+    width: 18px;
+    height: 18px;
 }

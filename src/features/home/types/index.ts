@@ -1,8 +1,8 @@
 export interface NewsInfo {
     id: number,
     title: string
-    image: string,
-    text: string
+    image_url: string,
+    content: string
 }
 
 

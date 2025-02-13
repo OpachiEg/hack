@@ -13,10 +13,10 @@ const NewsItem: React.FC<Props> = ({item,index}) => {
             // background: `linear-gradient(90deg, rgba(${(index+1)%2!==0 ? "77,25,204" : "234,89,31"},0.2) 0%, rgba(247,246,249,0.7) 32%)`,
             border: `3px solid ${(index+1)%2!==0 ? "rgb(77,25,204)" : "rgb(234,89,31)"}`
         }}>
-            <img src={item.image}/>
+            <img src={item.image_url}/>
             <div className={"home-news_item_text"}>
                 <p style={{fontWeight: "bold",fontSize: "18px"}}>{item.title}</p>
-                <p>{item.text}</p>
+                <p>{item.content}</p>
             </div>
         </div>
     );

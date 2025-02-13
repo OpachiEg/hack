@@ -1,13 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Info from "../../../components/info/Info";
 import {TbBell} from "react-icons/tb";
 import "./index.css";
-import CustomSelect from "../../../components/select/CustomSelect";
 import CustomInput from "../../../components/input/CustomInput";
 import Vacancies from '../components/vacancies/Vacancies';
 import UsefulLink from "../../../components/usefulLink/UsefulLink";
+import {InfoPartItem} from "../../../components/info/infoPart/InfoPart";
+import {API} from "../service/api";
 
 const Career = () => {
+
+    const [links,setLinks] = useState<Array<InfoPartItem>>([]);
+
+    useEffect(() => {
+        API.loadLinks("Помощь с резюме",3).then(({data}) => {
+            setLinks(data.map(v => (
+                {
+                    icon: <TbBell width={"18px"} size={"18px"}/>,
+                    textElement: <a href={v.url}>
+                        {v.title}
+                    </a>
+                }
+            )));
+        })
+    },[]);
+
     return (
         <div className={"main-container"}>
             <p className={"a-slide-y"}>Карьера</p>
@@ -18,16 +35,7 @@ const Career = () => {
                         colorRgba: "rgba(226,88,34,0.1)",
                         width: "100%",
                         title: "Составление резюме",
-                        items: [
-                            {
-                                icon: <TbBell width={"18px"} size={"18px"}/>,
-                                text: "Сегодня пройдет Хакатон",
-                                textElement: <p>
-                                    {"Как правильно составить резюме: "}
-                                    <a href={"https://str.uust.ru/page/241/?option=com_docman&task=cat_view&gid=25&limit=20&limitstart=20&order=date&dir=DESC&Itemid=99999999"}>{"https://str.uust.ru/page/241/?option=com_docman&task=cat_view&gid=25&limit=20&limitstart=20&order=date&dir=DESC&Itemid=99999999"}</a>
-                                </p>
-                            }
-                        ]
+                        items: links
                     }
                 ]}/>
                 <div className={"career_useful-links"}>

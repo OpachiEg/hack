@@ -1,9 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Info from "../../../components/info/Info";
 import News from "../components/news/News";
 import {TbBell, TbBriefcase2, TbCircleNumber4, TbCircleNumber5} from "react-icons/tb";
+import {InfoPartItem} from "../../../components/info/infoPart/InfoPart";
+import {API} from "../service/api";
 
 const Home = () => {
+
+    const [vacancies,setVacancies] = useState<Array<InfoPartItem>>([]);
+    const [reminders,setReminders] = useState<Array<InfoPartItem>>([]);
+
+    useEffect(() => {
+        API.loadVacancies(3).then(({data}) => {
+            setVacancies(data.map(v => ({icon: <TbBriefcase2 size={"18px"}/>,text: `${v.company_name} (${v.vacancy_name})`})));
+        });
+        API.loadReminders(3).then(({data}) => {
+            setReminders(data.map(v => (
+                {
+                    icon: <TbBriefcase2 size={"18px"}/>,
+                    text: `${new Date(v.event_datetime).toLocaleString('ru-RU', {day: 'numeric',month: "short",year: "numeric"})} ${v.title}`})
+            ));
+        })
+    },[]);
+
     return (
         <div className={"home main-container"}>
             <p className={"a-slide-y"}>Главная</p>
@@ -13,16 +32,7 @@ const Home = () => {
                     colorRgba: "rgb(0,206,209,0.1)",
                     width: "29%",
                     title: "Напоминания",
-                    items: [
-                        {
-                            icon: <TbBell width={"18px"} size={"18px"}/>,
-                            text: "Сегодня пройдет Хакатон 'Войти в Айти' "
-                        },
-                        {
-                            icon: <TbBell size={"18px"}/>,
-                            text: "23.12.2024 Защита Проекта"
-                        }
-                    ]
+                    items: reminders
                 },
                 {
                     color: "#EF0107",
@@ -49,20 +59,7 @@ const Home = () => {
                     colorRgba: "rgb(3,192,60,0.1)",
                     width: "29%",
                     title: "Карьерные предложения",
-                    items: [
-                        {
-                            icon: <TbBriefcase2 size={"18px"}/>,
-                            text: "ГазПром (Ведущий проектов)"
-                        },
-                        {
-                            icon: <TbBriefcase2 size={"18px"}/>,
-                            text: "ДРТ (Системный аналитик)"
-                        },
-                        {
-                            icon: <TbBriefcase2 size={"18px"}/>,
-                            text: "РосНефть (Программист)"
-                        }
-                    ]
+                    items: vacancies
                 }
             ]}/>
             <News/>
