@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import "./index.css";
-import ScheduleSearch, {SearchResult} from "../scheduleSearch/ScheduleSearch";
+import ScheduleSearch from "../scheduleSearch/ScheduleSearch";
 import {TbArrowBigLeft, TbArrowBigRight} from "react-icons/tb";
-import {ScheduleItem, ScheduleWeekDay} from "../../types";
+import {ScheduleItem, ScheduleWeekDay, SearchResult} from "../../types";
 
 const colors = [
     "rgba(0,127,255,0.1)",
@@ -13,12 +13,7 @@ const colors = [
     "rgba(77,25,204,0.1)"
 ];
 
-interface Props {
-    inputPlaceholder: string,
-    searchApi?: (value: string) => Promise<Array<SearchResult>>
-}
-
-const ScheduleTable: React.FC<Props> = ({inputPlaceholder, searchApi}) => {
+const ScheduleTable = () => {
 
     const [searchResult, setSearchResult] = useState<SearchResult | null>(null);
     const [scheduleWeek, setScheduleWeek] = useState<Map<ScheduleWeekDay, Array<ScheduleItem>>>();
@@ -61,7 +56,7 @@ const ScheduleTable: React.FC<Props> = ({inputPlaceholder, searchApi}) => {
 
     return (
         <div className={"a-opacity schedule-table"}>
-            <ScheduleSearch inputPlaceholder={inputPlaceholder} setSearchResult={setSearchResult}/>
+            <ScheduleSearch setSearchResult={setSearchResult}/>
             <div className={"search-table_content"}>
                 <div className={"search-table_header"}>
                     <div className={"search-table_header_date"}>

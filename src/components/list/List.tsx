@@ -4,7 +4,8 @@ import "./index.css";
 
 export interface ListItem {
     type: "header" | "text",
-    value: string | null,
+    value?: string | null,
+    valueElement?: ReactElement,
     icon?: ReactElement,
     onClick?: (id: number) => void,
     id?: number,
@@ -41,7 +42,7 @@ const List: React.FC<Props> = ({loading,items,columns }) => {
                         </div>
                     } else {
                         return <div className={"a-slide-x d-list__content__item"} style={style}>
-                            <p>{value.value ?? "-"}</p>
+                            {value.valueElement ? <>{value.valueElement}</> : <p>{value.value ?? "-"}</p>}
                         </div>
                     }
                 })}

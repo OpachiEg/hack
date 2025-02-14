@@ -6,7 +6,7 @@ const Schedule = () => {
     return (
         <div className={"main-container"}>
             <p className={"a-slide-y"}>Расписание</p>
-            <ScheduleTable inputPlaceholder={"Введите группу"}/>
+            <ScheduleTable/>
         </div>
     );
 };

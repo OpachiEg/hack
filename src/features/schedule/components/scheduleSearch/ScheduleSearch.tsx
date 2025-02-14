@@ -1,22 +1,18 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import CustomInput from "../../../../components/input/CustomInput";
 import "./index.css";
-
-export interface SearchResult {
-    name: string,
-    value: string,
-    type: string
-}
+import {SearchResult} from "../../types";
+import {API} from "../../service/api";
 
 interface Props {
-    inputPlaceholder: string,
-    searchApi?: (value: string) => Promise<Array<SearchResult>>,
     setSearchResult: (value: SearchResult) => void
 }
 
-const ScheduleSearch: React.FC<Props> = ({inputPlaceholder,searchApi,setSearchResult}) => {
+const ScheduleSearch: React.FC<Props> = ({setSearchResult}) => {
 
     const [searchItems, setSearchItems] = useState<Array<SearchResult> | null>();
+
+    const searchTimeout = useRef<ReturnType<typeof setTimeout>>();
 
     useEffect(() => {
         window.onclick = () => {
@@ -30,19 +26,30 @@ const ScheduleSearch: React.FC<Props> = ({inputPlaceholder,searchApi,setSearchRe
 
     const onSearch = useCallback((value: string) => {
         if (value?.length > 0) {
-            setSearchItems([
-                {
-                    name: "21П-1",
-                    value: "21П-1",
-                    type: "group"
-                },
-                {
-                    name: "123",
-                    value: "123",
-                    type: "group"
-                }
-            ]);
+            clearTimeout(searchTimeout.current);
+            searchTimeout.current = setTimeout(() => {
+                API.search(value)
+                    .then(({data}) => setSearchItems(
+                        data.map(v => {
+                            let name = null;
+                            switch (v.type) {
+                                case "group":
+                                    name = "Группа";
+                                    break;
+                                case "room":
+                                    name = "Аудитория";
+                                    break;
+                                case "teacher":
+                                    name = "Преподаватель";
+                                    break;
+                            }
+
+                            return {...v,name: `${v.name} (${name})`}
+                        })
+                    ));
+            },250);
         } else {
+            clearTimeout(searchTimeout.current);
             setSearchItems(null);
         }
     }, []);
@@ -54,7 +61,7 @@ const ScheduleSearch: React.FC<Props> = ({inputPlaceholder,searchApi,setSearchRe
                 style={{
                     width: "100%"
                 }}
-                placeholder={inputPlaceholder}
+                placeholder={"Введите группу, ФИО преподавателя или номер аудитории"}
             />
             {searchItems && searchItems?.length>0 && <div onClick={(e) => e.stopPropagation()} className={"schedule-table_search_result"}>
                 {searchItems?.map((v) => (

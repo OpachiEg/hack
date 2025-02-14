@@ -15,3 +15,9 @@ export interface ScheduleWeekDay {
     date: Date,
     dayOfWeek: string
 }
+
+export interface SearchResult {
+    name: string,
+    value: string,
+    type: "group" | "room" | "teacher"
+}
