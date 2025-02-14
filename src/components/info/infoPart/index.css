@@ -21,7 +21,7 @@
     margin-top: 10px;
 }
 
-.info_part_item > p,a {
+.info_part_item > p,.info_part_item >a {
      font-size: 13px;
      margin-left: 10px;
      overflow: hidden;

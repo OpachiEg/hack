@@ -6,5 +6,7 @@ export interface VacancyInfo {
     exp: string,
     schedule: string,
     type_of_employment: string,
-    image_url: string
+    image_url: string,
+    requirements: string,
+    responsibilities: string
 }

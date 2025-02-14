@@ -13,7 +13,6 @@
     width: 10px;
 }
 
-/* Handle */
 .main_content::-webkit-scrollbar-thumb {
     background: var(--grey);
     border-radius: 10px;

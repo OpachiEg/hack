@@ -1,26 +1,65 @@
 .vacancy-item {
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     height: 100%;
+    width: 100%;
 
     cursor: pointer;
 
     transition: 0.3s;
 
-    border: 1px solid rgba(0,0,0,0.1);
+    position: relative;
+
+    border-radius: 8px;
 }
 
-.vacancy-item:hover .vacancy-item_header_text p:first-child {
+.vacancy-item_content {
+    width: 100%;
+    height: max-content;
+
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid rgba(0,0,0,0.1);
+
+    background: white;
+
+    transition: 0.3s;
+
+    max-height: 400px;
+}
+
+.vacancy-item_content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.vacancy-item_content::-webkit-scrollbar-thumb {
+    background: var(--grey);
+    border-radius: 10px;
+}
+
+.vacancy-item_content:hover .vacancy-item_other {
+    animation: show-anim 0.5s forwards;
+}
+
+.vacancy-item_header_text a:last-child:hover {
     color: var(--orange);
 }
 
 .vacancy-item:hover {
     transform: translateY(-5px);
+
+    overflow: visible;
+    z-index: 10;
+}
+
+.vacancy-item:hover .vacancy-item_content {
+    position: absolute;
+    z-index: 10;
+
+    box-shadow: rgba(77, 25, 204, 0.35) 0px 5px 15px;
+
+    overflow-y: auto;
 }
 
 .vacancy-item_header {
@@ -56,15 +95,19 @@
     text-overflow: ellipsis;
 }
 
-.vacancy-item_header_text p:last-child {
+.vacancy-item_header_text a {
     font-size: 13px;
 
     margin-top: 8px;
 
     max-width: 200px;
+    width: max-content;
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    transition: 0.3s;
 }
 
 .vacancy-item_details {
@@ -73,6 +116,7 @@
     flex-wrap: wrap;
 
     margin-top: 5px;
+
 }
 
 .vacancy-item_details_item {
@@ -90,4 +134,43 @@
     font-family: MF-Regular;
     font-size: 14px;
     white-space: nowrap;
+}
+
+.vacancy-item_other {
+    display: flex;
+    flex-direction: column;
+
+    height: 0px;
+    opacity: 0;
+
+    transition: 0.3s;
+}
+
+.vacancy-item_other_item {
+    margin-top: 10px;
+}
+
+.vacancy-item_other_item p:first-child {
+    font-family: MF-Regular;
+    font-size: 15px;
+    opacity: 0.6;
+}
+
+.vacancy-item_other_item p:last-child {
+    margin-top: 5px;
+    font-size: 15px;
+    font-family: MF-Regular;
+}
+
+@keyframes show-anim {
+    0% {
+        opacity: 0;
+        height: 0px;
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        height: 100%;
+        transform: translateX(0);
+    }
 }
