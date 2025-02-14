@@ -100,6 +100,8 @@
 
     margin-top: 8px;
 
+    display: block;
+
     max-width: 200px;
     width: max-content;
 
@@ -125,7 +127,7 @@
 
     opacity: 0.7;
 
-    margin-right: 20px;
+    margin-right: 15px;
     margin-top: 10px;
 }
 
@@ -134,6 +136,11 @@
     font-family: MF-Regular;
     font-size: 14px;
     white-space: nowrap;
+
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .vacancy-item_other {
