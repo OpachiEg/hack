@@ -1,24 +1,15 @@
 import React from 'react';
 import "./index.css";
-import logo from "../../assets/image/logo.png";
 import SidebarItem from "./sidebarItem/SidebarItem";
-import {TbSmartHome} from "react-icons/tb";
-import {TbTable} from "react-icons/tb";
-import {TbBook} from "react-icons/tb";
-import {TbCalendarWeek} from "react-icons/tb";
-import {TbBriefcase2} from "react-icons/tb";
-import {TbMessageChatbot} from "react-icons/tb";
-import {TbBuildingBank} from "react-icons/tb";
+import {TbBook, TbBriefcase2, TbBuildingBank, TbCalendarWeek, TbMessageChatbot, TbSmartHome} from "react-icons/tb";
+import Logo from "../logo/Logo";
 
 
 const Sidebar = () => {
     return (
         <div className={"sidebar"}>
             <div className={"sidebar_main"}>
-                <div className={"sidebar_logo"}>
-                    <img src={logo}/>
-                    <h3>УУНиТ</h3>
-                </div>
+                <Logo/>
                 <div className={"sidebar_delimiter"}/>
                 <div className={"sidebar_menu"}>
                     <SidebarItem icon={<TbSmartHome size={"25px"}/>} text={"Главная"} to={"/"}/>
