@@ -1,0 +1,12 @@
+services:
+  front:
+    build: .
+    container_name: front-site
+    ports:
+      - '3000:3000'
+    networks:
+      - hack-network
+
+networks:
+  hack-network:
+    external: true
