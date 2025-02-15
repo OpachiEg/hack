@@ -36,6 +36,10 @@
     font-family: MF-Bold;
 }
 
+.search-table_header_date p:first-child::first-letter {
+    text-transform: capitalize;
+}
+
 .search-table_header_date p:last-child {
     font-family: MF-Regular;
     font-size: 13px;
@@ -103,6 +107,7 @@
     font-size: 16px;
     opacity: 0.5;
 }
+
 
 .search-table_column_header p:last-child {
     font-size: 18px;

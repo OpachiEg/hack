@@ -1,19 +1,17 @@
 export interface ScheduleItem {
-    id: number,
-    groupName: string,
-    semester: string,
-    startAt: string,
-    endAt: string,
-    discipline: string,
-    teacher: string,
-    audience: string,
-    type: string,
-    num: number
+    date: string
+    discipline: string
+    lesson_time: string
+    teacher: string
+    room: string
+    type: string
+    group_name: string
+
 }
 
-export interface ScheduleWeekDay {
-    date: Date,
-    dayOfWeek: string
+export interface ScheduleResult {
+    week_number: number,
+    schedule: Array<{date: string,lessons: Array<ScheduleItem>}>
 }
 
 export interface SearchResult {

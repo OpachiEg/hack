@@ -10,7 +10,8 @@ const NoContent: React.FC<Props> = ({message}) => {
             width: "100%",
             display: "flex",
             justifyContent: "center",
-            marginTop: "20px"
+            marginTop: "20px",
+            paddingBottom: "20px"
         }}>
             <p>{message}</p>
         </div>

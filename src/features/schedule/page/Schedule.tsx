@@ -1,5 +1,4 @@
 import React from 'react';
-import "./index.css";
 import ScheduleTable from "../components/scheduleTable/ScheduleTable";
 
 const Schedule = () => {
