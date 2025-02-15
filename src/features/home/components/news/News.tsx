@@ -41,7 +41,7 @@ const News = () => {
                               onEndReached={onEndReached}/>
                 ))
                 :
-                <NoContent message={"Нет новостей"}/>
+                <>{!loading && <NoContent message={"Нет новостей"}/>}</>
             }
             {loading &&  <Loading/>}
         </div>
