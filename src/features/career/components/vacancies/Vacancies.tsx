@@ -23,7 +23,6 @@ const Vacancies = forwardRef((props, ref) => {
     useImperativeHandle(ref, () => {
         return {
             search(query: string) {
-                console.log(query)
                 clearTimeout(searchTimeout.current);
                 searchTimeout.current = setTimeout(() => {
                     setQuery(query);

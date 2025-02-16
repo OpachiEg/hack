@@ -5,27 +5,45 @@ import {Controller, useForm} from "react-hook-form";
 import {Button, TextField} from "@mui/material";
 import {StringUtils} from "../../../utils/StringUtils";
 import {showMessage} from "../../../components/alert/Alert";
+import {API} from "../service/api";
+import {AxiosError} from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     const {control, trigger, getValues, formState: {isValid, errors}} = useForm({
         mode: "onChange"
     });
+    const navigate = useNavigate();
 
     useEffect(() => {
         trigger();
-    },[]);
+    }, []);
 
     const onClick = useCallback(() => {
-        if(!isValid) {
-            if(Object.keys(errors).length>0) {
+        if (!isValid) {
+            if (Object.keys(errors).length > 0) {
                 // @ts-ignore
                 showMessage("Ошибка: " + errors[Object.keys(errors)[0]].message.toString())
             }
         } else {
+            const data = new FormData();
+            data.set("grant_type", "password");
+            data.set("username", getValues("login"));
+            data.set("password", getValues("password"));
 
+            API.login(data)
+                .then(({data}) => {
+                    localStorage.setItem("token", data.access_token);
+                    navigate("/");
+                })
+                .catch((err: AxiosError) => {
+                    if (err?.status === 400) {
+                        showMessage("Ошибка: Неверный логин или пароль")
+                    }
+                });
         }
-    },[errors,isValid]);
+    }, [errors, isValid]);
 
     return (
         <div className={"login-page"}>
