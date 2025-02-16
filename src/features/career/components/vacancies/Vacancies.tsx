@@ -64,7 +64,7 @@ const Vacancies = forwardRef((props, ref) => {
                     ))}
                 </div>
                 :
-                <NoContent message={"Вакансий нет"}/>}
+                <>{!loading && <NoContent message={"Вакансий нет"}/>}</>}
             {loading && <Loading/>}
         </div>
     );
