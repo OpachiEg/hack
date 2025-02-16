@@ -54,7 +54,7 @@ const Career = () => {
                             maxWidth: "400px"
                         }}
                         onChange={(value) => vacanciesRef.current?.search(value)}
-                        placeholder={"Компании"}
+                        placeholder={"Введите компанию или должность"}
                     />
                 </div>
                 <Vacancies ref={vacanciesRef}/>
