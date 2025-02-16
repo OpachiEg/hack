@@ -43,7 +43,7 @@
 .search-table_header_date p:last-child {
     font-family: MF-Regular;
     font-size: 13px;
-    opacity: 0.7;
+    color: var(--grey);
     margin-top: 5px;
 }
 
@@ -105,13 +105,13 @@
 
 .search-table_column_header p:first-child {
     font-size: 16px;
-    opacity: 0.5;
+    color: var(--grey);
 }
 
 
 .search-table_column_header p:last-child {
     font-size: 18px;
-    opacity: 0.5;
+    color: var(--grey);
     margin-top: 5px;
 
     letter-spacing: 1px;
