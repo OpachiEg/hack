@@ -102,8 +102,12 @@ const ScheduleTable = () => {
                                               style={{gridTemplateColumns: `repeat(${schedule.length},1fr)`}}>
                     {schedule.map((v, i) => (
                         <div className={"search-table_column"}
-                             style={{borderRight: i === schedule.length - 1 ? "" : "1px solid rgba(0,0,0,0.1"}}>
-                            <div className={"search-table_column_header"}>
+                             style={{
+                                 borderRight: i === schedule.length - 1 ? "" : "1px solid rgba(0,0,0,0.1"
+                             }}>
+                            <div className={"search-table_column_header"} style={{
+                                color: new Date().setHours(0,0,0,0) === v.date.setHours(0,0,0,0) ? "var(--primary)" : ""
+                            }}>
                                 <p>{v.date.toLocaleString('ru-RU', {weekday: 'short'}).toUpperCase()}</p>
                                 <p>{v.date.toLocaleString('ru-RU', {day: 'numeric'})}</p>
                             </div>

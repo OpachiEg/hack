@@ -28,7 +28,7 @@
     margin-top: 15px;
 }
 
-@media (max-width: 970px) {
+@media (max-width: 1050px) {
     .career-header {
         align-items: flex-start;
         flex-direction: column;

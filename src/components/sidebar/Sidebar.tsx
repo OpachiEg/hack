@@ -17,7 +17,7 @@ const Sidebar = () => {
 
     const {setCurrentUser, currentUser} = useContext(AuthContext);
 
-    const [showSidebar, setShowSidebar] = useState(true);
+    const [showSidebar, setShowSidebar] = useState(window.innerWidth > 900);
 
     const closeSidebar = useCallback(() => setShowSidebar(false), []);
 
@@ -37,7 +37,7 @@ const Sidebar = () => {
         <>
             <div className={"sb-header"}>
                 <div className={"sb-header_bg"}>
-                    <button onClick={() => setShowSidebar(!showSidebar)}><TbMenu2 size={"25px"}/></button>
+                    <button style={{background: "none"}} onClick={() => setShowSidebar(!showSidebar)}><TbMenu2 size={"25px"}/></button>
                 </div>
             </div>
 
