@@ -52,7 +52,7 @@ const Career = () => {
                 <div className={"career_filters"}>
                     <CustomInput
                         style={{
-                            width: "60%",
+                            width: "100%",
                             maxWidth: "400px"
                         }}
                         onChange={(value) => vacanciesRef.current?.search(value)}

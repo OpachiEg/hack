@@ -1,30 +1,80 @@
-import React from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import "./index.css";
 import SidebarItem from "./sidebarItem/SidebarItem";
 import {TbBook, TbBriefcase2, TbBuildingBank, TbCalendarWeek, TbMessageChatbot, TbSmartHome} from "react-icons/tb";
 import Logo from "../logo/Logo";
+import {TbMenu2} from "react-icons/tb";
+import {AuthContext, AuthContextProps} from "../../provider/AuthProvider";
+import {API} from "../../service/api";
+import { TbLogout } from "react-icons/tb";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Sidebar = () => {
+
+    const navigate = useNavigate();
+
+    const {setCurrentUser, currentUser} = useContext(AuthContext);
+
+    const [showSidebar, setShowSidebar] = useState(false);
+
+    const closeSidebar = useCallback(() => setShowSidebar(false), []);
+
+    useEffect(() => {
+        API.getUserShortInfo().then(({data}) => {
+            setCurrentUser(data);
+        })
+    }, []);
+
+    const logout = useCallback(() => {
+        setCurrentUser(null);
+        navigate("/login");
+        localStorage.removeItem("token");
+    },[currentUser]);
+
     return (
-        <div className={"sidebar"}>
-            <div className={"sidebar_main"}>
-                <Logo/>
-                <div className={"sidebar_delimiter"}/>
-                <div className={"sidebar_menu"}>
-                    <SidebarItem icon={<TbSmartHome size={"25px"}/>} text={"Главная"} to={"/"}/>
-                    <SidebarItem icon={<TbCalendarWeek size={"23px"}/>} text={"Расписание"} to={"/schedule"}/>
-                    <SidebarItem icon={<TbBook size={"23px"}/>} text={"Успеваемость"} to={"/progress"}/>
-                    <SidebarItem icon={<TbBriefcase2 size={"23px"}/>} text={"Карьера"} to={"/career"}/>
-                    <SidebarItem icon={<TbMessageChatbot size={"23px"}/>} text={"Обратная связь"}/>
-                    <SidebarItem icon={<TbBuildingBank size={"23px"}/>} text={"Универститет"}/>
+        <>
+            <div className={"sb-header"}>
+                <div className={"sb-header_bg"}>
+                    <button onClick={() => setShowSidebar(!showSidebar)}><TbMenu2 size={"25px"}/></button>
                 </div>
             </div>
-            <div className={"sidebar_profile"}>
-                <img src={"https://avatars.dzeninfra.ru/get-zen_doc/3512851/pub_6209564f24637715d97125b4_620956933af96b75aef4d9f5/scale_1200"}/>
-                <p>Иванов Иван Иванович</p>
+
+            <div onClick={() => setShowSidebar(false)} className={"sidebar-wrapper"}
+                 style={{display: showSidebar ? "flex" : "none"}}>
+                <div className={"sidebar"} onClick={(e) => e.stopPropagation()}>
+                    <div className={"sidebar-bg"}>
+                        <div className={"sidebar_main"}>
+                            <Logo/>
+                            <div className={"sidebar_delimiter"}/>
+                            <div className={"sidebar_menu"}>
+                                <SidebarItem closeSidebar={closeSidebar} icon={<TbSmartHome size={"25px"}/>}
+                                             text={"Главная"} to={"/"}/>
+                                <SidebarItem closeSidebar={closeSidebar} icon={<TbCalendarWeek size={"23px"}/>}
+                                             text={"Расписание"} to={"/schedule"}/>
+                                <SidebarItem closeSidebar={closeSidebar} icon={<TbBook size={"23px"}/>}
+                                             text={"Успеваемость"} to={"/progress"}/>
+                                <SidebarItem closeSidebar={closeSidebar} icon={<TbBriefcase2 size={"23px"}/>}
+                                             text={"Карьера"} to={"/career"}/>
+                                <SidebarItem closeSidebar={closeSidebar} icon={<TbMessageChatbot size={"23px"}/>}
+                                             text={"Обратная связь"}/>
+                                <SidebarItem closeSidebar={closeSidebar} icon={<TbBuildingBank size={"23px"}/>}
+                                             text={"Универститет"}/>
+                            </div>
+                        </div>
+                        {currentUser && <div className={"sidebar_profile"}>
+                            <div className={"sidebar_profile_content"}>
+                                <img
+                                    src={currentUser?.image_url}/>
+                                <p>{currentUser?.full_name}</p>
+                            </div>
+                            <button onClick={logout}><TbLogout size={"20px"}/></button>
+                        </div>}
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

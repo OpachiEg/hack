@@ -2,6 +2,7 @@ import React from 'react';
 import AppRouter from "./route/AppRouter";
 import {createTheme, ThemeOptions, ThemeProvider} from "@mui/material";
 import Alert from "./components/alert/Alert";
+import AuthProvider from "./provider/AuthProvider";
 
 export const themeOptions: ThemeOptions = createTheme({
     palette: {
@@ -14,10 +15,12 @@ export const themeOptions: ThemeOptions = createTheme({
 
 const App = () => {
     return (
-        <ThemeProvider theme={themeOptions}>
-            <AppRouter/>
-            <Alert/>
-        </ThemeProvider>
+        <AuthProvider>
+            <ThemeProvider theme={themeOptions}>
+                <AppRouter/>
+                <Alert/>
+            </ThemeProvider>
+        </AuthProvider>
     )
 };
 export default App;

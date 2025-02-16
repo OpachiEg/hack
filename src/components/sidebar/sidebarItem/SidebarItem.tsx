@@ -5,12 +5,13 @@ import "./index.css";
 interface Props {
     icon: ReactElement,
     text: string,
-    to?: string
+    to?: string,
+    closeSidebar: () => void
 }
 
-const SidebarItem: React.FC<Props> = ({icon,text,to}) => {
+const SidebarItem: React.FC<Props> = ({icon,text,to,closeSidebar}) => {
     return (
-        <Link to={to ?? "/"} className={"a-slide-x sidebar_item"}>
+        <Link onClick={closeSidebar} to={to ?? "/"} className={"a-slide-x sidebar_item"}>
             {icon}
             <p>{text}</p>
         </Link>

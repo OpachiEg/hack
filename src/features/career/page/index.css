@@ -14,11 +14,12 @@
     align-items: center;
     flex-wrap: wrap;
 
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .career_useful-links {
     display: flex;
+    flex-wrap: wrap;
 
     margin-left: 20px;
 }

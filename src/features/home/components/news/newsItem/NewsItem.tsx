@@ -23,8 +23,8 @@ const NewsItem: React.FC<Props> = ({item,index,isLastItem,onEndReached }) => {
                 <img src={item.image_url}/>
             </div>
             <div className={"home-news_item_text"}>
-                <p style={{fontWeight: "bold",fontSize: "18px"}}>{item.title} <span style={{fontSize: "14px",fontFamily: "MF-Regular",opacity: 0.6}}>{new Date(item.created_at).toLocaleString('ru-RU', {day: 'numeric',month: "numeric",year: "numeric"})}</span></p>
-                <p>{item.content}</p>
+                <p style={{fontWeight: "bold",fontSize: "18px"}}>{item.title}</p>
+                <p className={"home-news_item_text_main"}>{item.content}</p>
             </div>
         </InView>
     );
