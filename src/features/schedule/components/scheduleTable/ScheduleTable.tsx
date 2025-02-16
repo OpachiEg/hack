@@ -81,13 +81,13 @@ const ScheduleTable = () => {
     return (
         <div className={"a-opacity schedule-table"}>
             <ScheduleSearch setSearchResult={setSearchResult}/>
+            {searchResult && <p>{searchResult?.name}</p>}
             <div className={"search-table_content"}>
                 {currentWeek && <div className={"search-table_header"}>
                     <div className={"search-table_header_date"}>
                         <p>{currentWeek?.startAt.toLocaleString('ru-RU', {month: 'long'})}</p>
                         <p>{DateUtils.getWeekNumber(currentWeek?.startAt)} неделя, {currentWeek?.startAt.toLocaleString('ru-RU', {year: 'numeric'})}</p>
                     </div>
-                    {searchResult && <p>{searchResult?.name}</p>}
                     <div className={"search-table_header_pag"}>
                         <button onClick={() => changeWeek(false)} className={"search-table_header_pag_btn"}
                                 style={{marginRight: "10px"}}>

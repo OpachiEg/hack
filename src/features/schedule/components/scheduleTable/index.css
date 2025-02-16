@@ -6,10 +6,9 @@
 
 
 .schedule-table > p {
-    font-family: MF-Regular;
-    font-size: 24px;
+    margin-top: 20px;
 
-    margin-top: 15px;
+    color: var(--primary);
 }
 
 .search-table_content {
@@ -30,10 +29,6 @@
     justify-content: space-between;
 
     padding: 25px;
-}
-
-.search-table_header_date p:first-child {
-    font-family: MF-Bold;
 }
 
 .search-table_header_date p:first-child::first-letter {
