@@ -6,7 +6,7 @@ export interface ScheduleItem {
     room: string
     type: string
     group_name: string
-
+    lesson_number: number
 }
 
 export interface ScheduleResult {

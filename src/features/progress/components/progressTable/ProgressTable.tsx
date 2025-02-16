@@ -105,10 +105,15 @@ const ProgressTable: React.FC<Props> = ({semester}) => {
                         } else {
                             const respValue = resp[field as keyof ProgressInfo];
 
-                            let value: {value?: string,valueElement?: ReactElement} = {value: respValue.toString()};
-                            if((typeof respValue) === "boolean") {
-                                value = {
-                                    valueElement: (respValue as boolean) ? <TbCheck color={"var(--green)"} size={"18px"}/> : <TbX color={"var(--red)"} size={"18px"}/>
+                            let value: {value?: string,valueElement?: ReactElement} = {value: "-"};
+                            if(respValue) {
+                                value = {value: respValue.toString()};
+                                if ((typeof respValue) === "boolean") {
+                                    value = {
+                                        valueElement: (respValue as boolean) ?
+                                            <TbCheck color={"var(--green)"} size={"18px"}/> :
+                                            <TbX color={"var(--red)"} size={"18px"}/>
+                                    }
                                 }
                             }
 

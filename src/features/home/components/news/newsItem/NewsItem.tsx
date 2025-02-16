@@ -7,12 +7,13 @@ interface Props {
     item: NewsInfo,
     index: number,
     isLastItem: boolean
-    onEndReached: () => void
+    onEndReached: () => void,
+    showModal: (info: NewsInfo) => void
 }
 
-const NewsItem: React.FC<Props> = ({item,index,isLastItem,onEndReached }) => {
+const NewsItem: React.FC<Props> = ({showModal,item,index,isLastItem,onEndReached }) => {
     return (
-        <InView threshold={0.5} as={"div"} onChange={inView => {
+        <InView onClick={() => showModal(item)} threshold={0.5} as={"div"} onChange={inView => {
             if (inView && isLastItem) {
                 onEndReached();
             }

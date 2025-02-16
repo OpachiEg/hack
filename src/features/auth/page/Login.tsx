@@ -75,6 +75,7 @@ const Login = () => {
                         }}
                         render={({field}) => (
                             <TextField
+                                type={"password"}
                                 style={{marginTop: "10px"}}
                                 fullWidth
                                 size={"small"}

@@ -1,0 +1,32 @@
+.news-modal {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-modal > p {
+    font-family: MF-Bold;
+    font-size: 20px;
+}
+
+.news-modal > img {
+    margin-top: 10px;
+
+    border-radius: 20px;
+}
+
+.news-modal_content {
+    margin-top: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.news-modal_content > p:first-child {
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+.news-modal_content > p:last-child {
+    font-family: MF-Regular;
+    margin-top: 10px;
+}

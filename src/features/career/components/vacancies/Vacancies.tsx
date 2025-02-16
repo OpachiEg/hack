@@ -28,10 +28,10 @@ const Vacancies = forwardRef((props, ref) => {
                     setQuery(query);
                     setPage(1);
                     setVacancies(undefined);
-                }, 500);
+                }, 250);
             }
         }
-    });
+    },[]);
 
     useEffect(() => {
         if(!vacancies) {

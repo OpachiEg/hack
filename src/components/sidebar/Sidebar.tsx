@@ -17,7 +17,7 @@ const Sidebar = () => {
 
     const {setCurrentUser, currentUser} = useContext(AuthContext);
 
-    const [showSidebar, setShowSidebar] = useState(false);
+    const [showSidebar, setShowSidebar] = useState(true);
 
     const closeSidebar = useCallback(() => setShowSidebar(false), []);
 
@@ -41,8 +41,7 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            <div onClick={() => setShowSidebar(false)} className={"sidebar-wrapper"}
-                 style={{display: showSidebar ? "flex" : "none"}}>
+            <div onClick={() => setShowSidebar(false)} className={`sidebar-wrapper ${showSidebar ? "show-sidebar" : "hide-sidebar"}`}>
                 <div className={"sidebar"} onClick={(e) => e.stopPropagation()}>
                     <div className={"sidebar-bg"}>
                         <div className={"sidebar_main"}>
@@ -57,10 +56,6 @@ const Sidebar = () => {
                                              text={"Успеваемость"} to={"/progress"}/>
                                 <SidebarItem closeSidebar={closeSidebar} icon={<TbBriefcase2 size={"23px"}/>}
                                              text={"Карьера"} to={"/career"}/>
-                                <SidebarItem closeSidebar={closeSidebar} icon={<TbMessageChatbot size={"23px"}/>}
-                                             text={"Обратная связь"}/>
-                                <SidebarItem closeSidebar={closeSidebar} icon={<TbBuildingBank size={"23px"}/>}
-                                             text={"Универститет"}/>
                             </div>
                         </div>
                         {currentUser && <div className={"sidebar_profile"}>

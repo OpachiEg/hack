@@ -31,7 +31,7 @@ const Career = () => {
         <div className={"main-container"}>
             <p className={"a-slide-y"}>Карьера</p>
             <div className={"career-header"}>
-                <Info style={{width: "50%", marginTop: "0px"}} items={[
+                <Info style={{width: "30%", marginTop: "0px"}} items={[
                     {
                         color: "#E25822",
                         colorRgba: "rgba(226,88,34,0.1)",
@@ -42,9 +42,7 @@ const Career = () => {
                 ]}/>
                 <div className={"career_useful-links"}>
                     <UsefulLink bgColor={"rgba(0,127,255,0.05)"} title={"Трудовой кодекс"} color={"var(--blue)"}
-                                link={""}/>
-                    <UsefulLink bgColor={"rgba(127,255,0,0.05)"} title={"Постановление РФ №501"}
-                                color={"var(--light-green)"} link={""}/>
+                                link={"https://www.consultant.ru/document/cons_doc_LAW_34683/"}/>
                 </div>
             </div>
             <div className={"career_content"}>

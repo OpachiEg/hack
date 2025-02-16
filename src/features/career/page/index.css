@@ -27,3 +27,18 @@
 .career_filters {
     margin-top: 15px;
 }
+
+@media (max-width: 970px) {
+    .career-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .career_useful-links {
+        margin-top: 10px;
+    }
+
+    .career-header .page-info {
+        width: 100% !important;
+    }
+}

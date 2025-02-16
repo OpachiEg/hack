@@ -148,3 +148,40 @@
 
     margin-top: 5px;
 }
+
+@media (max-width: 1150px) {
+    .search-table_main {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+
+        border-top: none;
+    }
+
+    .search-table_column {
+        width: 100%;
+
+        border-right: none !important;
+
+        border-top: 1px solid rgba(0,0,0,0.1);
+    }
+}
+
+@media (max-width: 500px) {
+    .search-table_header > p {
+        font-size: 18px;
+    }
+
+    .search-table_header {
+        padding: 15px;
+    }
+
+    .search-table_header_pag_btn {
+        padding: 7px;
+    }
+
+    .search-table_header_pag_btn:first-child {
+        margin-right: 5px !important;
+    }
+}

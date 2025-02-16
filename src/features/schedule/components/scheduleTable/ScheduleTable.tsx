@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useMemo, useState} from 'react';
 import "./index.css";
 import ScheduleSearch from "../scheduleSearch/ScheduleSearch";
 import {TbArrowBigLeft, TbArrowBigRight} from "react-icons/tb";
@@ -6,6 +6,7 @@ import {ScheduleItem, ScheduleResult, SearchResult} from "../../types";
 import {API} from "../../service/api";
 import {DateUtils} from "../../../../utils/DateUtils";
 import NoContent from "../../../../components/NoContent";
+import {AuthContext} from "../../../../provider/AuthProvider";
 
 const colors = [
     "rgba(0,127,255,0.1)",
@@ -17,6 +18,8 @@ const colors = [
 ];
 
 const ScheduleTable = () => {
+
+    const {currentUser} = useContext(AuthContext);
 
     const [searchResult, setSearchResult] = useState<SearchResult | null>(null);
     const [scheduleResult, setScheduleResult] = useState<ScheduleResult>();
@@ -37,6 +40,16 @@ const ScheduleTable = () => {
 
         setCurrentWeek({startAt, endAt});
     }, []);
+
+    useEffect(() => {
+        if(currentUser) {
+            setSearchResult({
+                name: currentUser.group_name + " (Группа)",
+                value: currentUser.group_name,
+                type: "group"
+            })
+        }
+    },[currentUser]);
 
     useEffect(() => {
         if (searchResult && currentWeek) {
@@ -78,10 +91,10 @@ const ScheduleTable = () => {
                     <div className={"search-table_header_pag"}>
                         <button onClick={() => changeWeek(false)} className={"search-table_header_pag_btn"}
                                 style={{marginRight: "10px"}}>
-                            <TbArrowBigLeft size={"20px"}/>
+                            <TbArrowBigLeft size={"18px"}/>
                         </button>
                         <button onClick={() => changeWeek(true)} className={"search-table_header_pag_btn"}>
-                            <TbArrowBigRight size={"20px"}/>
+                            <TbArrowBigRight size={"18px"}/>
                         </button>
                     </div>
                 </div>}
@@ -104,8 +117,8 @@ const ScheduleTable = () => {
                                     }
 
                                     return (
-                                        <div className={"search-table_column_item"} style={{background: colors[i1]}}>
-                                            <p>{v1.discipline}</p>
+                                        <div className={"search-table_column_item"} style={{background: colors[v1.lesson_number-1]}}>
+                                            <p>{v1.lesson_number + "." +v1.discipline}</p>
                                             <p className={"search-table_column_item_d"}>{v1.lesson_time}</p>
                                             <p className={"search-table_column_item_d"}>{t}</p>
                                         </div>

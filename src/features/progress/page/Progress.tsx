@@ -23,10 +23,8 @@ const Progress = () => {
                 <TabList style={{marginTop: "10px"}} onChange={(event, newValue) => {
                     setCurrentTab(newValue)
                 }}>
-                    <Tab className={"sem-tab"} style={{fontFamily: "MF-Regular"}} label="Ⅰ" value={1}/>
-                    <Tab className={"sem-tab"} style={{fontFamily: "MF-Regular"}} label="Ⅱ" value={2}/>
-                    <Tab className={"sem-tab"} style={{fontFamily: "MF-Regular"}} label="Ⅲ" value={3}/>
-                    <Tab className={"sem-tab"} style={{fontFamily: "MF-Regular"}} label="Ⅳ" value={4}/>
+                    <Tab className={"sem-tab"} style={{fontFamily: "MF-Regular"}} label="Семестр Ⅰ" value={1}/>
+                    <Tab className={"sem-tab"} style={{fontFamily: "MF-Regular"}} label="Семестр Ⅱ" value={2}/>
                 </TabList>
                 <TabPanel style={{padding: 0}} value={1}><ProgressTable semester={1}/></TabPanel>
                 <TabPanel style={{padding: 0}} value={2}><ProgressTable semester={2}/></TabPanel>

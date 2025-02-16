@@ -1,0 +1,17 @@
+.home .page-info .info_part:last-child {
+    margin-right: 0px;
+}
+
+@media (max-width: 650px) {
+    .home .page-info {
+        flex-direction: column;
+    }
+
+    .home .page-info .info_part {
+        width: 100% !important;
+
+        margin-right: 0px !important;
+        margin-top: 10px;
+    }
+
+}
