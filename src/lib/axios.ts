@@ -2,7 +2,7 @@ import axios, {AxiosError, AxiosInstance} from "axios";
 import {showMessage} from "../components/alert/Alert";
 
 const baseInstance = axios.create({
-    baseURL: "http://localhost:8000",
+    baseURL: "http://95.174.92.77:8000",
     timeout: 5000
 });
 
