@@ -113,9 +113,9 @@ const ScheduleTable = () => {
                             </div>
                             <div className={"a-slide-x search-table_column_items"}>
                                 {v.lessons.map((v1, i1) => {
-                                    let t = v1.teacher;
+                                    let t = `${v1.teacher} (${v1.room})`;
                                     if(searchResult?.type === "teacher") {
-                                        t = v1.group_name;
+                                        t = `${v1.group_name} (${v1.room})`;
                                     } else if (searchResult?.type == "room") {
                                         t = `${v1.group_name} (${v1.teacher})`
                                     }
