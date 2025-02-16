@@ -6,6 +6,7 @@ import Career from "../features/career/page/Career";
 import Progress from "../features/progress/page/Progress";
 import Schedule from "../features/schedule/page/Schedule";
 import Login from "../features/auth/page/Login";
+import NotFound from "../components/notFound/NotFound";
 
 const AppRouter = () => {
 
@@ -33,7 +34,8 @@ const AppRouter = () => {
                     path: "/schedule",
                     element: <Schedule/>
                 }
-            ]
+            ],
+            errorElement: <NotFound/>
         }
     ]);
 
